@@ -9,9 +9,18 @@ class Calculator
     numbers = input_string.split(regex)
 
     result = 0
+    negative_numbers = []
 
     numbers.each do |n|
-      result = result + n.to_i
+      if n.to_i < 0
+        negative_numbers << n.to_i
+      else
+        result = result + n.to_i
+      end
+    end
+
+    unless negative_numbers.empty?
+      raise StandardError.new("negative numbers not allowed #{negative_numbers.join(",")}")
     end
 
     return result
