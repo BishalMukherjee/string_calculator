@@ -15,6 +15,7 @@ class Calculator
       if n.to_i < 0
         negative_numbers << n.to_i
       else
+        next if n.to_i > 1000
         result = result + n.to_i
       end
     end
