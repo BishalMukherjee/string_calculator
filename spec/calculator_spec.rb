@@ -28,5 +28,9 @@ RSpec.describe Calculator do
     it "should ignore numbers bigger than 1000" do
       expect(calculator.add("//;\n2;1001")).to eq(2)
     end
+
+    it "should handle multi character delimiter" do
+      expect(calculator.add("//[***]\n1***2***3")).to eq(6)
+    end
   end
 end
