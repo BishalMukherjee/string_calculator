@@ -12,5 +12,9 @@ RSpec.describe Calculator do
     it "add two numbers in a string separated by comma" do
       expect(calculator.add("1,2")).to eq(3)
     end
+
+    it "should handle new lines" do
+      expect(calculator.add("1\n2")).to eq(3)
+    end
   end
 end

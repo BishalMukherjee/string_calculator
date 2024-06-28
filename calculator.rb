@@ -1,6 +1,6 @@
 class Calculator
   def add(input_string)
-    numbers = input_string.split(",")
+    numbers = input_string.split(/[,\n]+/)
 
     result = 0
 
