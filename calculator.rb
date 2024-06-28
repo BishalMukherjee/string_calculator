@@ -38,4 +38,32 @@ class Calculator
 
     return result
   end
+
+  # We can extract the numbers directly from the string using the scan method
+  # to_i method converts the character to integer if that character is number_string
+  # otherwise returns 0
+  # for float or decimal to_f can be used
+  # given the numbers be only integer
+
+  def simple_addition(input_string)
+    result = 0
+    negative_numbers = []
+
+    numbers = input_string.scan(/-?\d+/)
+
+    numbers.each do |n|
+      if n.to_i < 0
+        negative_numbers << n.to_i
+      else
+        next if n.to_i > 1000
+        result = result + n.to_i
+      end
+    end
+
+    unless negative_numbers.empty?
+      raise StandardError.new("negative numbers not allowed #{negative_numbers.join(",")}")
+    end
+
+    return result
+  end
 end
