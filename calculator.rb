@@ -1,6 +1,12 @@
 class Calculator
   def add(input_string)
-    numbers = input_string.split(/[,\n]+/)
+    delimiter_string = input_string.match(/^\/\/(.*?)\n/)
+    given_delimiter = delimiter_string ? delimiter_string[1] : nil
+    delimiter_regex = "[,\n#{given_delimiter}]"
+
+    regex = Regexp.new(delimiter_regex)
+
+    numbers = input_string.split(regex)
 
     result = 0
 
